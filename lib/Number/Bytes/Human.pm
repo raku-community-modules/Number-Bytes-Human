@@ -24,7 +24,7 @@ sub format-bytes(Numeric $bytes, Int :$magnitude = 0 --> Str) is export(:functio
 }
 
 sub parse-bytes(Str $bytes --> Numeric) is export(:functions) {
-    if $bytes ~~ m:i/$<value>=(\-?\d+) \s? $<suffix>=(<[BKMGTPEZY]>)B?/ {
+    if $bytes ~~ m:i/$<value>=(\-?\d+[\.\d+]?) \s? $<suffix>=(<[BKMGTPEZY]>)B?/ {
         my $value = $<value>.Numeric * %MAGNITUDES{ $<suffix> };
         return $value;
     }

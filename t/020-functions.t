@@ -6,7 +6,7 @@ use lib 'lib';
 use Number::Bytes::Human :functions;
 use Test;
 
-plan 22;
+plan 23;
 
 is format-bytes(1023), '1023B', '1023 should read "1023B"';
 is format-bytes(1024), '1K', '1024 should read "1K"';
@@ -31,5 +31,6 @@ is parse-bytes('1Z'), 1024 ** 7, '1Z should yield 1180591620717411303424';
 is parse-bytes('1Y'), 1024 ** 8, '1Y should yield 1208925819614629174706176';
 is parse-bytes('-1G'), -1024 ** 3, '-1G should yield -1073741824';
 is parse-bytes('1014G'), 1088774209536, '1014G should yield 1088774209536';
+is parse-bytes('1.0K'), 1024, '1.0K should yeild 1024';
 
 done-testing;
