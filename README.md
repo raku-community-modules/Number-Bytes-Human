@@ -6,7 +6,7 @@ SYNOPSIS
 ================================================================================
     # Functional interface
     use Number::Bytes::Human :functions;
-    my $size = format-bytes 1024; # '1.0K'
+    my $size = format-bytes 1024; # '1K'
 
     my $bytes = parse-bytes '1.0k'; # 1024
 
@@ -16,7 +16,7 @@ SYNOPSIS
     my Number::Bytes::Human;
     my $human = Number::Bytes::Human.new;
 
-    my $size = $human.format(1024); # '1.0K'
+    my $size = $human.format(1024); # '1K'
     my $bytes = $human.parse('1.0k'); # 1024
 
 DESCRIPTION
