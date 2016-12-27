@@ -15,11 +15,7 @@ constant %MAGNITUDES = {
     Y => 2 ** 80,
 };
 
-multi format-bytes($bytes) is export(:functions) {
-    return format-bytes $bytes, 0;
-}
-
-multi format-bytes($bytes, :$magnitude = 0) {
+sub format-bytes(Numeric $bytes, Int :$magnitude = 0 --> Str) is export(:functions) {
     if $bytes.abs < 1024 {
         return "{ sprintf '%.0f', $bytes }" ~ "{ @SUFFIXES[ $magnitude ] }";
     }
@@ -27,7 +23,7 @@ multi format-bytes($bytes, :$magnitude = 0) {
     return format-bytes $bytes / 1024, magnitude => $magnitude + 1;
 }
 
-multi parse-bytes($bytes) is export(:functions) {
+sub parse-bytes(Str $bytes --> Numeric) is export(:functions) {
     if $bytes ~~ m:i/$<value>=(\-?\d+) \s? $<suffix>=(<[BKMGTPEZY]>)B?/ {
         my $value = $<value>.Numeric * %MAGNITUDES{ $<suffix> };
         return $value;
@@ -38,10 +34,10 @@ multi parse-bytes($bytes) is export(:functions) {
 }
 
 class Number::Bytes::Human {
-    method format ($bytes) {
+    method format (Numeric $bytes --> Str) {
         return format-bytes $bytes;
     }
-    method parse ($bytes) {
+    method parse (Str $bytes --> Numeric) {
         return parse-bytes $bytes;
     }
 };
