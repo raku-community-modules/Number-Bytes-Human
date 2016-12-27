@@ -1,4 +1,5 @@
 foo
+lib/.precomp
 /blib/
 /.build/
 _build/
