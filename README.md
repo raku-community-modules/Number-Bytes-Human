@@ -8,7 +8,7 @@ SYNOPSIS
     use Number::Bytes::Human :functions;
     my $size = format-bytes 1024; # '1K'
 
-    my $bytes = parse-bytes '1.0k'; # 1024
+    my $bytes = parse-bytes '1.0K'; # 1024
 
     exit;
 
@@ -17,7 +17,7 @@ SYNOPSIS
     my $human = Number::Bytes::Human.new;
 
     my $size = $human.format(1024); # '1K'
-    my $bytes = $human.parse('1.0k'); # 1024
+    my $bytes = $human.parse('1.0K'); # 1024
 
 DESCRIPTION
 ================================================================================
