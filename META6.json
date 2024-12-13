@@ -3,10 +3,11 @@
     "name": "Number::Bytes::Human",
     "license" : "MIT",
     "version": "0.0.3",
-    "description": "Converts byte count into an easy to read format.",
+    "description": "Convert byte count into an easy to read format",
+    "auth": "zef:raku-community-modules",
     "authors": ["Douglas L. Jenkins"],
     "provides": {
-        "Number::Bytes::Human": "lib/Number/Bytes/Human.pm"
+        "Number::Bytes::Human": "lib/Number/Bytes/Human.rakumod"
     },
     "depends": [],
     "resources": [],

@@ -1,10 +1,6 @@
-#!/usr/bin/env perl6
-
-use v6;
-use lib 'lib';
+use Test;
 
 use Number::Bytes::Human :functions;
-use Test;
 
 plan 23;
 
@@ -33,4 +29,4 @@ is parse-bytes('-1G'), -1024 ** 3, '-1G should yield -1073741824';
 is parse-bytes('1014G'), 1088774209536, '1014G should yield 1088774209536';
 is parse-bytes('1.0K'), 1024, '1.0K should yeild 1024';
 
-done-testing;
+# vim: expandtab shiftwidth=4
